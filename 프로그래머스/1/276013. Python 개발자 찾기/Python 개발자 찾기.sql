@@ -1,0 +1,7 @@
+-- 출력 정보 : ID, EMAIL, FIRST_NAME, LAST_NAME
+-- 조건 : SKILL이 Python
+-- ID를 기준으로 오름차순
+SELECT ID, EMAIL, FIRST_NAME, LAST_NAME  
+FROM DEVELOPER_INFOS 
+WHERE SKILL_1 = 'Python' OR SKILL_2 = 'Python' OR SKILL_3 = 'Python' 
+ORDER BY ID ASC;
