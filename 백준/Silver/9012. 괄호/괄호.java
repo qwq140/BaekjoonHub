@@ -1,29 +1,32 @@
 import java.util.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
-     public static String parenthess(String str) {
-        Stack<Character> stack = new Stack<>();
+    public static String parenthess(String str) {
+        int stack = 0;
 
         for(int i = 0; i < str.length() ; i++) {
             char c = str.charAt(i);
             if(c == ')') {
-                if(stack.isEmpty() || stack.pop() != '(') {
+                if(stack-- == 0) {
                     return "NO";
                 }
             } else {
-                stack.add(c);
+                stack++;
             }
         }
 
-        if(stack.isEmpty()) {
+        if(stack == 0) {
             return "YES";
         }
         return "NO";
     }
 
-    
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
         List<String> list = new ArrayList<>();
@@ -36,5 +39,5 @@ public class Main {
         for (String s : list) {
             System.out.println(parenthess(s));
         }
-	}
+    }
 }
